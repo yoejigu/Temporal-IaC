@@ -1,4 +1,4 @@
-name: Temporal-IaC
+name: test-resize
 description: A minimal TypeScript Pulumi program
 runtime:
   name: nodejs
@@ -8,9 +8,3 @@ config:
   pulumi:tags:
     value:
       pulumi:template: typescript
-packages:
-  temporalcloud:
-    source: terraform-provider
-    version: 0.11.0
-    parameters:
-      - temporalio/temporalcloud

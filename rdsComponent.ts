@@ -99,7 +99,7 @@ export class RdsDatabase extends pulumi.ComponentResource {
         //  RDS Instance
         const db = new aws.rds.Instance("my-db", {
             engine: args.engine ?? "postgres",
-            engineVersion: "17.2",
+            engineVersion: "8.0.41",
             instanceClass: args.instanceClass ?? "db.t3.micro",
             allocatedStorage: args.allocatedStorage,
             maxAllocatedStorage: args.maxAllocatedStorage,

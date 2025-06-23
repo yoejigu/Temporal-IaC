@@ -1,4 +1,4 @@
-name: test-resize
+name: Temporal-IaC
 description: A minimal TypeScript Pulumi program
 runtime:
   name: nodejs

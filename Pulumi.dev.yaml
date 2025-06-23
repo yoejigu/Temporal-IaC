@@ -1,0 +1,4 @@
+config:
+  #Temporal-IaC:rdsAllocatedStorage: "20"
+  pulumi:autonaming:
+    pattern: yte-${stack}-${name}

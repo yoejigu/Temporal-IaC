@@ -6,6 +6,7 @@ const config = new pulumi.Config()
 
 const rdsDb = new RdsDatabase("my-db", {
     allocatedStorage: Number(process.env.RDS_ALLOCATEDSTORAGE) ?? 20,
+    engine: "mysql",
     maxAllocatedStorage: 0,
     dbName: "testdb",
     username: "yteDemoAdmin",

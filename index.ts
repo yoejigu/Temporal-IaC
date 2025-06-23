@@ -12,7 +12,6 @@ const rdsDb = new RdsDatabase("my-db", {
     username: "yteDemoAdmin",
     password: "t3stpwdforD3mo",
     publiclyAccessible: true,
-    applyImmediately: true,
     identifier: "temporaldemodbresize"
 });
 

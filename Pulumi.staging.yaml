@@ -1,6 +1,6 @@
 config:
   aws:region: us-east-1
-  pulumi:autonaming:
-    pattern: yte-${stack}-${name}
+  #pulumi:autonaming:
+    #pattern: yte-${stack}-${name}
 environment:
   - cloud-access/aws-oidc

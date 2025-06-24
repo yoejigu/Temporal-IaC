@@ -1,4 +1,6 @@
 config:
-  #Temporal-IaC:rdsAllocatedStorage: "20"
+  aws:region: us-east-1
   pulumi:autonaming:
     pattern: yte-${stack}-${name}
+environments:
+  - cloud-access/aws-oidc

@@ -21,9 +21,6 @@ export class RdsDatabase extends pulumi.ComponentResource {
         super("pkg:index:RDS", name, {}, opts);
 
 
-        const dbUsername = "yteDemoAdmin";
-        const dbName = "my_app_db";
-        const dbPassword = "superStrongPWD!!!";
 
         //  Create a custom VPC
         const vpc = new aws.ec2.Vpc("custom-vpc", {

@@ -2,10 +2,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { RdsDatabase } from "./rdsComponent";
 
 const config = new pulumi.Config()
-let rdsAllocatedStorage = config.getNumber("rdsAllocatedStorage") || 20
 
 const rdsDb = new RdsDatabase("my-db", {
-    allocatedStorage: rdsAllocatedStorage,
+    allocatedStorage: Number(process.env.RDS_ALLOCATEDSTORAGE) ?? 20,
     maxAllocatedStorage: 0,
     dbName: "testdb",
     username: "yteDemoAdmin",

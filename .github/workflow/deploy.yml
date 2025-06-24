@@ -1,0 +1,24 @@
+name: Pulumi
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - name: Authenticate to Pulumi
+        uses: pulumi/auth-actions@v1
+        with:
+          organization: pulumi
+          requested-token-type: urn:pulumi:token-type:access_token:organization
+      - name: Install and Inject ESC Environement Variables
+        uses: pulumi/esc-action@v1
+        with:
+          environment: 'demo/cloud-access/aws-oidc'
+      - run: npm install
+      - uses: pulumi/actions@v6
+        with:
+          command: preview
+          stack-name: demo/actionTest # When using an individual account, only use stack-name.

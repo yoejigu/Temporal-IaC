@@ -1,5 +1,6 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
+import * as port from "@port-labs/port";
 
 export interface RdsDatabaseArgs {
     identifier?: string;
@@ -10,6 +11,7 @@ export interface RdsDatabaseArgs {
     username: string;
     password: pulumi.Input<string>;
     publiclyAccessible?: boolean;
+    applyImmediately?: boolean;
     engine?: string;
   }
 
@@ -19,8 +21,6 @@ export class RdsDatabase extends pulumi.ComponentResource {
   
     constructor(name: string, args: RdsDatabaseArgs, opts?: pulumi.ComponentResourceOptions) {
         super("pkg:index:RDS", name, {}, opts);
-
-
 
         //  Create a custom VPC
         const vpc = new aws.ec2.Vpc("custom-vpc", {
@@ -95,7 +95,7 @@ export class RdsDatabase extends pulumi.ComponentResource {
 
         //  RDS Instance
         const db = new aws.rds.Instance("my-db", {
-            engine: args.engine ?? "postgres",
+            engine: args.engine ?? "mysql",
             engineVersion: "8.0.41",
             instanceClass: args.instanceClass ?? "db.t3.micro",
             allocatedStorage: args.allocatedStorage,
@@ -103,7 +103,7 @@ export class RdsDatabase extends pulumi.ComponentResource {
             dbName: args.dbName,
             username: args.username,
             password: args.password,
-            applyImmediately: true,
+            applyImmediately: args.applyImmediately,
             dbSubnetGroupName: dbSubnetGroup.name,
             vpcSecurityGroupIds: [dbSg.id],
             skipFinalSnapshot: true,

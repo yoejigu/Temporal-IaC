@@ -103,6 +103,7 @@ export class RdsDatabase extends pulumi.ComponentResource {
             dbName: args.dbName,
             username: args.username,
             password: args.password,
+            applyImmediately: true,
             dbSubnetGroupName: dbSubnetGroup.name,
             vpcSecurityGroupIds: [dbSg.id],
             skipFinalSnapshot: true,

@@ -1,3 +1,6 @@
 /bin/
 /node_modules/
 /sdks/temporalcloud
+/blueprints/node_modules
+.DS_Store
+blueprints/package-lock.json

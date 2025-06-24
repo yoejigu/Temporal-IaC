@@ -7,7 +7,6 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.113.0",
-        "@pulumi/temporalcloud": "file:sdks/temporalcloud",
         "@pulumi/aws": "^6.0.0"
     }
 }
